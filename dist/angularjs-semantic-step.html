@@ -1,0 +1,15 @@
+<div class="ui {{stepCount}} steps">
+  <div class="{{(currentStepNumber == $index + 1)?'active':''}} link {{step.isDisable?'disabled':''}}  step" ng-repeat="step in steps"
+    ng-click="_onStepClick($index, step)">
+    <div ng-show="step.hasStepNumber" class="ui big circular labels">
+      <a class="ui label">
+        {{$index + 1}}
+      </a>
+    </div>
+    <i ng-show="step.hasIcon" class="{{step.icon}} icon"></i>
+    <div class="content">
+      <div class="title">{{step.title}}</div>
+      <div ng-show="step.hasDescription" class="description">{{step.description}}</div>
+    </div>
+  </div>
+</div>

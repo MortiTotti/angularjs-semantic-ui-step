@@ -1,0 +1,26 @@
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <script src="./node_modules/angular/angular.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+  <script src="dist/angularjs-semantic-step.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="home">
+  <button ng-click="addStep()">add</button>
+  <button ng-click="goto(2)">goto step 2</button>
+  <button ng-click="gotoNext()">Next</button>
+  <button ng-click="gotoPrior()">Prior</button>
+  <angularjs-semantic-step
+    name="mywizard"
+    steps="stepItems" 
+    on-step-click="onStepClicked" 
+    on-step-change="onStepChanged">
+  </angularjs-semantic-step>
+  <div ng-include="'page1.html'" ng-show="currentStep == 1"></div>
+  <div ng-include="'page2.html'" ng-show="currentStep == 2"></div>
+</body>
+</html>
